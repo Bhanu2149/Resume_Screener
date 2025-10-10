@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Screener | Login</title>
+  <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+  <main class="login-container">
+    <h1>AI Resume Screener</h1>
+    <p>Sign in to continue</p>
+
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter your username" required />
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="hr">HR</option>
+        <option value="user">User</option>
+      </select>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="note">Demo Only — No backend yet, just redirects based on role.</p>
+  </main>
+
+  <script src="../scripts/login.js"></script>
+</body>
+</html>

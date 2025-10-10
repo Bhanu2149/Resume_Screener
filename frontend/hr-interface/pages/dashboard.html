@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Screener — HR Dashboard</title>
+  <link rel="stylesheet" href="../styles/dashboard.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <h2>AI Resume Screener</h2>
+    <ul>
+      <li class="active">📊 Dashboard</li>
+      <li>📂 Upload Resumes</li>
+      <li>🧾 Job Descriptions</li>
+      <li>👤 Candidates</li>
+      <li>⚙️ Settings</li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="menu-icon" id="menuToggle">☰</div>
+      <h1>HR Dashboard</h1>
+      <input type="search" placeholder="Search..." />
+    </header>
+
+    <!-- Cards -->
+    <section class="cards">
+      <div class="card">
+        <h3>Total Resumes</h3>
+        <p>--</p>
+      </div>
+      <div class="card">
+        <h3>Top Matches</h3>
+        <p>--</p>
+      </div>
+      <div class="card">
+        <h3>Average Fit</h3>
+        <p>--</p>
+      </div>
+    </section>
+
+    <!-- Candidates Table -->
+    <section class="table">
+      <h2>Candidates</h2>
+      <p class="placeholder">No data yet — will load after backend processing.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Match %</th>
+            <th>Experience</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="candidate-data">
+          <tr>
+            <td colspan="4" style="text-align:center; color:#9ca3af; padding:20px;">
+              Waiting for uploads...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../scripts/dashboard.js"></script>
+</body>
+</html>

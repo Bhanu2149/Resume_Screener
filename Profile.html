@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Profile Page</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f5f6fa;
+      color: #333;
+    }
+
+    /* Dashboard layout */
+    .dashboard {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #2d3436;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 22px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #dfe6e9;
+      text-decoration: none;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #636e72;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .profile-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0984e3;
+    }
+
+    .upload-btn {
+      display: block;
+      margin: 10px auto;
+      background: #0984e3;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .save-btn {
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .save-btn:hover {
+      background: #019870;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+      }
+      .main-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>HR Dashboard</h2>
+      <a href="#">Dashboard</a>
+      <a href="#">Employee List</a>
+      <a href="#">Attendance</a>
+      <a href="#">Settings</a>
+      <a href="#" style="background:#00b894;">Profile</a>
+    </div>
+
+    <div class="main-content">
+      <div class="profile-card">
+        <div class="profile-header">
+          <img id="profilePhoto" src="https://via.placeholder.com/120" alt="Profile Photo" class="profile-photo" />
+          <input type="file" id="photoUpload" style="display:none;" accept="image/*" />
+          <button class="upload-btn" onclick="document.getElementById('photoUpload').click()">Change Photo</button>
+        </div>
+
+        <form id="profileForm">
+          <div>
+            <label>Full Name</label>
+            <input type="text" id="name" value="John Doe" required />
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" id="email" value="john.doe@company.com" required />
+          </div>
+          <div>
+            <label>Position</label>
+            <input type="text" id="position" value="HR Manager" />
+          </div>
+          <div>
+            <label>About</label>
+            <textarea id="about" rows="3" placeholder="Write something about yourself...">Experienced HR professional with a focus on employee engagement and organizational development.</textarea>
+          </div>
+
+          <button type="submit" class="save-btn">Save / Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const photoInput = document.getElementById('photoUpload');
+    const profilePhoto = document.getElementById('profilePhoto');
+    const form = document.getElementById('profileForm');
+
+    // Update profile photo preview
+    photoInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        profilePhoto.src = URL.createObjectURL(file);
+      }
+    });
+
+    // Save form data (demo - local storage)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const profileData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        position: document.getElementById('position').value,
+        about: document.getElementById('about').value,
+      };
+
+      localStorage.setItem('hrProfile', JSON.stringify(profileData));
+      alert('Profile updated successfully!');
+    });
+
+    // Load saved data if exists
+    window.addEventListener('load', () => {
+      const saved = JSON.parse(localStorage.getItem('hrProfile'));
+      if (saved) {
+        document.getElementById('name').value = saved.name;
+        document.getElementById('email').value = saved.email;
+        document.getElementById('position').value = saved.position;
+        document.getElementById('about').value = saved.about;
+      }
+    });
+  </script>
+</body>
+</html>

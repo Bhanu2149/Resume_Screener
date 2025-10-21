@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Animate progress bar fill
   const progressFill = document.querySelector(".progress-fill");
   const scoreText = document.querySelector(".ats-score").textContent;
   const scoreValue = parseInt(scoreText.split("/")[0].trim());
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     progressFill.style.width = `${scoreValue}%`;
   }, 100);
 
-  // Highlight keywords dynamically
   const keywords = document.querySelectorAll(".keyword");
   keywords.forEach((keyword) => {
     keyword.style.backgroundColor = "#e0f7fa";
@@ -22,19 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
     keyword.style.color = "#00796b";
   });
 
-  // Optional: make score history clickable
   const scoreItems = document.querySelectorAll(".card:nth-of-type(3) li");
   scoreItems.forEach((item) => {
     item.style.cursor = "pointer";
     item.addEventListener("click", () => {
       alert(`Viewing details for: ${item.textContent}`);
-      // Future: redirect to detailed score breakdown
     });
   });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Animate ATS score progress bar
   const scoreElement = document.querySelector(".ats-score");
   const progressFill = document.querySelector(".progress-fill");
 
@@ -47,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
   }
 
-  // Style matched keywords
   const keywords = document.querySelectorAll(".keyword");
   keywords.forEach((keyword) => {
     keyword.style.backgroundColor = "#e0f7fa";
@@ -59,13 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
     keyword.style.color = "#00796b";
   });
 
-  // Make score history items interactive
   const scoreItems = document.querySelectorAll(".card:nth-of-type(3) li");
   scoreItems.forEach((item) => {
     item.style.cursor = "pointer";
     item.addEventListener("click", () => {
       alert(`Viewing details for: ${item.textContent}`);
-      // Future: redirect to detailed score breakdown or resume viewer
     });
   });
 });

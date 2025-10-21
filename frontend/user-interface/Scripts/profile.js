@@ -1,4 +1,3 @@
-// Score Trends Chart
 const ctx = document.getElementById("scoreChart").getContext("2d");
 
 const scoreChart = new Chart(ctx, {

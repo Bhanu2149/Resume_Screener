@@ -1,4 +1,3 @@
-// Resume Upload Handler
 function uploadResume() {
   const resumeFile = document.getElementById("resumeUpload").files[0];
   if (!resumeFile) {
@@ -7,11 +6,10 @@ function uploadResume() {
   }
 
   console.log("Uploading resume:", resumeFile.name);
-  // Simulate scan and feedback
+
   alert(`Resume "${resumeFile.name}" uploaded and scanned successfully.`);
 }
 
-// Job Description Upload Handler
 function uploadJobDescription() {
   const jobFile = document.getElementById("jobDescUpload").files[0];
   if (!jobFile) {
@@ -23,7 +21,6 @@ function uploadJobDescription() {
   alert(`Job description "${jobFile.name}" uploaded successfully.`);
 }
 
-// Submit Job Description Text
 function submitJobDescription() {
   const jobText = document.getElementById("jobDescText").value.trim();
   if (!jobText) {
@@ -35,7 +32,6 @@ function submitJobDescription() {
   alert("Job description submitted successfully.");
 }
 
-// Resume List Actions
 document.addEventListener("DOMContentLoaded", () => {
   const resumeItems = document.querySelectorAll(".resume-list li");
 
@@ -46,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     viewBtn.addEventListener("click", () => {
       alert(`Viewing resume: ${fileName}`);
-      // Future: redirect to resume viewer
     });
 
     deleteBtn.addEventListener("click", () => {
